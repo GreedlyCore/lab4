@@ -63,12 +63,10 @@ public class Main {
 
         Maze maze = new Maze("Maze", trueNature, Adjectives.GIANT);
 
-
         System.out.println(maze.giveOpinion());
         Thought thoughtAboutMaze = new Thought(maze);
         Printer.print(thoughtAboutPowerOfMind, "have doubts?...", thoughtAboutPowerOfMind.isDoubts(),
                 maze, thoughtAboutMaze, Relations.WITH.text(), maze.giveOpinion());
-
 
         Town oldTown = new Town(Adjectives.SCARY, Adjectives.OLD);
         Time oldTimes = new Time(Relations.BEFORE.text(), oldTown);
@@ -95,6 +93,5 @@ public class Main {
         Printer.print("Compare...", reality, dream, "differences..",
                 dream.checkDifferenceSpecificThing(reality));
 
-//Singleton
     }
 }

@@ -3,19 +3,13 @@ package enums;
 public enum Adjectives {
     ARTIFICAL("artificial"),
     COLD("cold"),
-    COMMON("common"),
     SCARY("scary"),
     CLEAR("clear"),
-    BROKEN("broken"),
     ANCIENT("ancient"),
-    UNUSABLE("unusable"),
-    DOUBTFUL("doubtful"),
     OLD("old"),
     OBJECTIVE("objective"),
     INESCAPABLE("inescapable"),
-    PHYSICAL("physical"),
     GIANT("giant"),
-    MULTI("multi"),
     DANGEROUS("dangerous"),
     STONE("stone");
 
