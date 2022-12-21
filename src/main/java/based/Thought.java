@@ -4,6 +4,7 @@ import enums.Relations;
 import helper.Printer;
 
 public class Thought extends Entity {
+    private static Thought nullThought;
     boolean isAllowed;
     boolean doubts;
     Entity subject;
@@ -19,6 +20,14 @@ public class Thought extends Entity {
         this.subject = subject;
     }
 
+
+    public static Thought getInstanceOfNullThought() {
+        if (nullThought == null) {
+            nullThought = new Thought("nullThought", Entity.getInstanceOfNullObject());
+        }
+        return nullThought;
+    }
+
     public boolean isAllowed() {
         return isAllowed;
     }
@@ -27,21 +36,21 @@ public class Thought extends Entity {
         this.isAllowed = isAllowed;
     }
 
-    public void getInformation() {
-        subject.toString();
-    }
-
-    public void setDoubts(boolean doubts) {
-        this.doubts = doubts;
+    public String getInformation() {
+        return subject.toString();
     }
 
     public boolean isDoubts() {
         return doubts;
     }
 
+    public void setDoubts(boolean doubts) {
+        this.doubts = doubts;
+    }
+
     @Override
     public String toString() {
-        return Printer.setSpaces("Thought", Relations.OF.text(), subject.toString());
+        return Printer.setSpaces(getName(), Relations.OF.text(), subject.toString());
     }
 
 }

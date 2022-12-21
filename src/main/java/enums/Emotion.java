@@ -5,11 +5,10 @@ public enum Emotion {
     MISTRUST("mistrust"),
     DELIGHT("delight"),
     HORROR("horror");
+    private final String name;
 
-
-    private String name;
-    Emotion(String name){
-        this.name=name;
+    Emotion(String name) {
+        this.name = name;
     }
 
     public String text() {

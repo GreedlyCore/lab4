@@ -59,7 +59,7 @@ public final class Nature extends Entity {
         if (isTruth) {
             return super.getName();
         }
-        return Printer.setSpaces("broken laws of", super.getName());
+        return Printer.setSpaces("broke laws of", super.getName());
 
     }
 

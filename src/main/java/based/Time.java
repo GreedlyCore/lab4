@@ -1,5 +1,6 @@
 package based;
 
+import exceptions.TimeInvalidFormatException;
 import helper.Printer;
 
 public final class Time extends Entity {
@@ -7,10 +8,13 @@ public final class Time extends Entity {
     private int count;
     private String unit;
 
-    private Entity object;
+    private final Entity object;
 
-    public Time(int count, String unit, Entity object) {
+    public Time(int count, String unit, Entity object) throws TimeInvalidFormatException {
         super("time");
+        if (count < 0) {
+            throw new TimeInvalidFormatException("invalid time format while creating Time new instance");
+        }
         this.count = count;
         this.unit = unit;
         this.object = object;
@@ -23,19 +27,25 @@ public final class Time extends Entity {
     }
 
     public Time(int count, String unit) {
-        super("time");
+        this();
         this.count = count;
         this.unit = unit;
     }
 
     public Time(String unit) {
-        super("time");
+        this();
         this.unit = unit;
     }
 
     public Time(Entity obj) {
-        super("time");
+        super("time:");
         this.object = obj;
+    }
+
+    public Time() {
+        super("time:");
+        this.object = getInstanceOfNullObject();
+
     }
 
     public Entity getObject() {
@@ -48,7 +58,11 @@ public final class Time extends Entity {
 
     @Override
     public String toString() {
-        return Printer.setSpaces(super.getName(), String.valueOf(count), unit, object.toString());
+        if (count != 0) {
+            return Printer.setSpaces(super.getName(), String.valueOf(count), unit, object.toString());
+        }
+        return Printer.setSpaces(super.getName(), unit, object.toString());
+
     }
 
 

@@ -12,6 +12,7 @@ public final class StoneJungles extends Location {
         super("Stone Jungles", adjectives);
 
     }
+
     public StoneJungles(String name, Adjectives... adjectives) {
 
         super(name, adjectives);
@@ -29,8 +30,8 @@ public final class StoneJungles extends Location {
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (Adjectives adjective : super.getDescriptions()) {
-            stringBuilder.append(adjective.text());
+        for (Object adjective : super.getDescriptions()) {
+            stringBuilder.append(adjective.toString());
         }
         return Printer.setSpaces(this.getName(), stringBuilder.toString());
 

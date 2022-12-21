@@ -4,32 +4,17 @@ import based.Location;
 import based.Time;
 import enums.Adjectives;
 import enums.Climate;
+import enums.Relations;
 import helper.Printer;
 
-public final class Plateau extends Location {
+public class Plateau extends Location {
 
-    private final String height;
-    private final String unit;
+    private String height;
+    private String unit;
     private Climate climate;
 
-    private final Location innerPlace;
-    private final Time fromTime;
-
-    public Location getInnerPlace() {
-        return innerPlace;
-    }
-
-    public String getHeight() {
-        return height;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public Time getFromTime() {
-        return fromTime;
-    }
+    private Location innerPlace;
+    private Time fromTime;
 
     public Plateau(Adjectives[] descriptions, int height, String unit, Climate climate, Time fromTime, Location innerPlace) {
         super("Plateau", descriptions);
@@ -39,6 +24,11 @@ public final class Plateau extends Location {
         this.climate = climate;
         this.fromTime = fromTime;
         this.innerPlace = innerPlace;
+    }
+
+    public Plateau(String name, Adjectives description) {
+        super(name, description);
+
     }
 
     private Plateau(PlateauBuilder plateauBuilder) {
@@ -60,12 +50,8 @@ public final class Plateau extends Location {
 
     @Override
     public String toString() {
-        StringBuilder descriptionStringBuilder = new StringBuilder();
-
-        for (Adjectives adjective : descriptions) {
-            descriptionStringBuilder.append(adjective.text() + " ");
-        }
-        return Printer.setSpaces(descriptionStringBuilder.toString(), this.getName(), climate.text(), height, unit, innerPlace.toString(), fromTime.toString());
+        return Printer.setSpaces(super.toString(), this.getName(), height, unit,
+                Relations.WITH.text(), climate.text());
     }
 
     public static class PlateauBuilder {
@@ -111,10 +97,6 @@ public final class Plateau extends Location {
             return new Plateau(this);
         }
 
-    }
-
-    public boolean hasInsideStoneJungles() {
-        return innerPlace.getClass() == StoneJungles.class;
     }
 
 }

@@ -1,6 +1,6 @@
 package helper;
 
-public class Printer {
+public final class Printer {
     //типизрование
     public static void print(Object... objs) {
         for (Object obj : objs) {
@@ -11,6 +11,7 @@ public class Printer {
         Printer.printLine();
 
     }
+
     public static void printLine() {
         for (int i = 0; i < 9; i++) {
             System.out.print("-");

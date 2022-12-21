@@ -9,8 +9,8 @@ import locations.Continent;
 
 public final class Humanity extends Entity implements TimeComparable {
 
-    private Thought thought;
     private final Human[] humans;
+    private Thought thought;
     private boolean isAppeared;
 
 
@@ -33,7 +33,7 @@ public final class Humanity extends Entity implements TimeComparable {
     public void think(Time time) {
         if (time.getUnit() != "before") {
 
-            this.thought.getInformation();
+            thought.getInformation();
         } else {
             thought.setAllowed(false);
         }
