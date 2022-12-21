@@ -1,7 +1,8 @@
 package creatures;
 
-import based.*;
-import enums.*;
+import based.Entity;
+import based.Thing;
+import enums.Adjectives;
 
 public class Phantom extends Entity {
 
@@ -32,19 +33,19 @@ public class Phantom extends Entity {
         this.setExaggerations(exaggerations);
     }
 
-    public void setDistortions(Thing[] distortions) {
-        this.distortions = distortions;
-    }
-
-    public void setExaggerations(Thing[] exaggerations) {
-        this.exaggerations = exaggerations;
-    }
-
     public Thing[] getDistortions() {
         return distortions;
     }
 
+    public void setDistortions(Thing[] distortions) {
+        this.distortions = distortions;
+    }
+
     public Thing[] getExaggerations() {
         return exaggerations;
+    }
+
+    public void setExaggerations(Thing[] exaggerations) {
+        this.exaggerations = exaggerations;
     }
 }

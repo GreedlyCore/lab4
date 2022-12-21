@@ -1,4 +1,4 @@
-package tests;
+package based;
 
 import based.Entity;
 import creatures.Human;
