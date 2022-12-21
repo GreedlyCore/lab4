@@ -1,7 +1,6 @@
 package based;
 
 public class Law extends Entity {
-
     boolean isBroken;
 
     public Law(boolean isBroken) {

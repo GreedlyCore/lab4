@@ -5,7 +5,6 @@ import locations.Sight;
 
 
 public final class Impression extends Entity {
-
     private final Sight fromSight;
     private boolean isDescribed;
 

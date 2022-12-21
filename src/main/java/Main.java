@@ -18,9 +18,9 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-
-//        Thought aboutLimit = new Thought ("limit that", new Thing("feelings"));
         Human we = new Human("We");
+        System.out.println(we.getClass());
+        Class clazz;
         we.scream(new ArrayList<>() {
             {
                 add(Emotion.DELIGHT);
@@ -45,13 +45,12 @@ public class Main {
                 Adjectives.CRAZY);
         MountainRange.Mirage mirage = crazyMountain.new Mirage("mirage");
         we.confuse(new Sight(), mirage);
-        Maze stoneMaze = new Maze("Stone maze", Adjectives.GIANT, Adjectives.AESTHETIC);
+        Maze<?> stoneMaze = new Maze("Stone maze", Adjectives.GIANT, Adjectives.AESTHETIC);
         Peak peak = stoneMaze.new Peak("peak");
         Maze.Snow snow = stoneMaze.new Snow("Snow", "40-50", "foots", Adjectives.ETERNAL);
         Desert coldDesert = new Desert("Desert", stoneMaze, Adjectives.GIANT, Adjectives.COLD);
         we.observe(crazyMountain, new Time("last morning"));
         we.observe(coldDesert);
-
         //------------------------------//
         Sight sight = new Sight(Adjectives.SCARY);
         Impression impression = new Impression(sight);
@@ -67,7 +66,7 @@ public class Main {
         Humanity humanity = new Humanity(1000);
         humanity.setAppeared(false);
         try {
-            Time BeforeHumans = new Time(-110, "years before", humanity);
+            Time BeforeHumans = new Time(0, "years before", humanity);
             StoneJungles stoneJungles = new StoneJungles("inside Stone Jungles", Adjectives.ARTIFICIAL);
             Plateau plateau = new Plateau.PlateauBuilder()
                     .description(Adjectives.ANCIENT, Adjectives.COLD)
@@ -173,13 +172,9 @@ public class Main {
         Human me = new Human("I");
         me.think(new Thought(antarctica));
         me.think(new Thought(localLegends));
-        //---//
-        try {
-            Thing thing = new Thing("");
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-        }
 
+
+        Thing<?> thing = new Thing<>("");
 
     }
 }

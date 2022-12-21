@@ -14,7 +14,6 @@ public class Thought extends Entity {
         super("Thought");
         this.subject = subject;
     }
-
     public Thought(String name, Entity subject) {
         super(name);
         this.subject = subject;

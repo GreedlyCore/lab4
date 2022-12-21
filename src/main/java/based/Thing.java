@@ -40,7 +40,6 @@ public class Thing<T> extends Entity {
         }
         return noneThing;
     }
-
     @Override
     public String toString() {
 

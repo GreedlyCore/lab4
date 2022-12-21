@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class Location<T> extends Entity {
-
     private static Location<?> nowhere;
     private static ArrayList<Adjectives> noDescription;
     protected ArrayList<?> descriptions;
@@ -19,13 +18,11 @@ public abstract class Location<T> extends Entity {
         this.descriptions = new ArrayList<T>(Arrays.asList(adjectives));
 
     }
-
     public Location(String name) {
         super(name);
         this.descriptions = getInstanceOfNoDesctiption();
 
     }
-
     public static Location<?> getInstanceOfNowhere() {
         if (nowhere == null) {
             nowhere = new Location<>("nowhere", new ArrayList<Adjectives>(List.of(Adjectives.NOTHING))) {
@@ -33,7 +30,6 @@ public abstract class Location<T> extends Entity {
         }
         return nowhere;
     }
-
     public static ArrayList<Adjectives> getInstanceOfNoDesctiption() {
 
         if (noDescription == null) {

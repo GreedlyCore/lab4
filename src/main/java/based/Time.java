@@ -64,6 +64,4 @@ public final class Time extends Entity {
         return Printer.setSpaces(super.getName(), unit, object.toString());
 
     }
-
-
 }

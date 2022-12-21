@@ -19,7 +19,6 @@ public class Maze<T> extends Location {
     private Rhythmicity rhythmicity;
     private Peak peak;
     private Snow snow;
-
     public Maze(String name, Nature nature, Adjectives... descriptions) {
         super(name, descriptions);
         this.nature = nature;

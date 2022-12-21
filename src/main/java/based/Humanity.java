@@ -8,11 +8,9 @@ import interfaces.TimeComparable;
 import locations.Continent;
 
 public final class Humanity extends Entity implements TimeComparable {
-
     private final Human[] humans;
     private Thought thought;
     private boolean isAppeared;
-
 
     private Humanity(Thought thought, int countOfHuman) {
         this(countOfHuman);
@@ -28,8 +26,6 @@ public final class Humanity extends Entity implements TimeComparable {
         }
 
     }
-
-
     public void think(Time time) {
         if (time.getUnit() != "before") {
 
@@ -72,6 +68,5 @@ public final class Humanity extends Entity implements TimeComparable {
     public void setThought(Thought thought) {
         this.thought = thought;
     }
-
 
 }

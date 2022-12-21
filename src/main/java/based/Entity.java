@@ -1,25 +1,22 @@
 package based;
 
 import annotations.MarkerAnnottation;
-import exceptions.UnnamedException;
+import exceptions.UnnamedEntityInstanceException;
 
 @MarkerAnnottation
 public abstract class Entity {
-
     private static Entity noneObject;
     private final String name;
 
-
     protected Entity(String name) {
         if (name == "") {
-            throw new UnnamedException("can't create Instance of Entity with blank name. name it!!!!");
+            throw new UnnamedEntityInstanceException("can't create Instance of Entity with blank name. name it!!!!");
         } else {
             this.name = name;
         }
 
 
     }
-
     public static Entity getInstanceOfNullObject() {
         if (noneObject == null) {
             noneObject = new Entity("NothingObject") {
@@ -31,7 +28,6 @@ public abstract class Entity {
         }
         return noneObject;
     }
-
     public int hashCode() {
         int result = 0;
         for (char chr : name.toCharArray()) {
@@ -45,13 +41,11 @@ public abstract class Entity {
 //        return (int) unixTime % 1000000000;
 
     }
-
     @Override
     public String toString() {
         return name;
 
     }
-
     @Override
     public boolean equals(Object obj) {
         Entity object = (Entity) obj;
@@ -62,5 +56,4 @@ public abstract class Entity {
     public String getName() {
         return name;
     }
-
 }
