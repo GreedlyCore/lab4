@@ -150,3 +150,10 @@ public class Human extends Monkey {
         }
     }
 }
+/**
+ *
+ *  TYPE vs class difference
+ *  runoutofmem
+ *  Seri
+ *  Autoclsoable
+ */

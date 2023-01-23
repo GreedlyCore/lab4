@@ -9,7 +9,7 @@ public abstract class Entity {
     private final String name;
 
     protected Entity(String name) {
-        if (name == "") {
+        if (name.equals("")) {
             throw new UnnamedEntityInstanceException("can't create Instance of Entity with blank name. name it!!!!");
         } else {
             this.name = name;
@@ -50,7 +50,8 @@ public abstract class Entity {
     public boolean equals(Object obj) {
         Entity object = (Entity) obj;
         return obj.hashCode() == this.hashCode()
-                && obj.getClass() == this.getClass() && name.equals(object.getName());
+                && obj.getClass() == this.getClass() &&
+                name.equals(object.getName());
     }
 
     public String getName() {

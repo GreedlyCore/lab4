@@ -10,7 +10,6 @@ import enums.Relations;
 import exceptions.TimeInvalidFormatException;
 import helper.Printer;
 import locations.*;
-import locations.Maze.Peak;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,8 +18,6 @@ public class Main {
 
     public static void main(String[] args) {
         Human we = new Human("We");
-        System.out.println(we.getClass());
-        Class clazz;
         we.scream(new ArrayList<>() {
             {
                 add(Emotion.DELIGHT);
@@ -35,8 +32,8 @@ public class Main {
         GardenOfTheGods garden = new GardenOfTheGods("Gods Garden", colorado);
         we.remember(new Thought("Strange form", new Thought("Stone shape", garden)));
 
-        Thing<?> symmetry = new Thing("Symmetry", Emotion.WONDER);
-        Thing<?> wind = new Thing("wind");
+        Thing<Emotion> symmetry = new Thing<>("Symmetry", Emotion.WONDER);
+        Thing<?> wind = new Thing<>("wind");
         Desert desert = new Desert("Arizona desert");
         Desert.Cliff cliff = desert.new Cliff("cliff", wind, symmetry);
         we.remember(new Thought("Wonder Symmetry", cliff));
@@ -45,9 +42,9 @@ public class Main {
                 Adjectives.CRAZY);
         MountainRange.Mirage mirage = crazyMountain.new Mirage("mirage");
         we.confuse(new Sight(), mirage);
-        Maze<?> stoneMaze = new Maze("Stone maze", Adjectives.GIANT, Adjectives.AESTHETIC);
-        Peak peak = stoneMaze.new Peak("peak");
-        Maze.Snow snow = stoneMaze.new Snow("Snow", "40-50", "foots", Adjectives.ETERNAL);
+        Maze<Adjectives> stoneMaze = new Maze<>("Stone maze", Adjectives.GIANT, Adjectives.AESTHETIC);
+        Maze<Adjectives>.Peak peak = stoneMaze.new Peak("peak");
+        Maze<Adjectives>.Snow snow = stoneMaze.new Snow("Snow", "40-50", "foots", Adjectives.ETERNAL);
         Desert coldDesert = new Desert("Desert", stoneMaze, Adjectives.GIANT, Adjectives.COLD);
         we.observe(crazyMountain, new Time("last morning"));
         we.observe(coldDesert);
@@ -94,13 +91,13 @@ public class Main {
         Printer.print(whenColdHasStarted, "Is human similar to monkey?...",
                 humanity.isSimilarSpecificTime(whenColdHasStarted));
 
-        Thing powerOfMind = new Thing("Power Of Mind");
+        Thing<?> powerOfMind = new Thing<>("Power Of Mind");
         Thought thoughtAboutPowerOfMind = new Thought(powerOfMind);
         thoughtAboutPowerOfMind.setDoubts(true);
         Nature trueNature = new Nature("Real Nature");
         trueNature.setTruth(true);
 
-        Maze maze = new Maze("Maze", trueNature, Adjectives.GIANT);
+        Maze<Adjectives> maze = new Maze<>("Maze", trueNature, Adjectives.GIANT);
         Thought thoughtAboutMaze = new Thought(maze);
         Printer.print(thoughtAboutPowerOfMind, "have doubts?...", thoughtAboutPowerOfMind.isDoubts(),
                 thoughtAboutMaze, Relations.WITH.text(), maze.giveOpinion());
@@ -108,13 +105,12 @@ public class Main {
         Town oldTown = new Town(Adjectives.SCARY, Adjectives.OLD);
         Time oldTimes = new Time(Relations.BEFORE.text(), oldTown);
         Town townNow = new Town(Adjectives.SCARY);
-        oldTimes.getObject().equals(townNow);
-        Thing reality = new Thing("Reality", Adjectives.OBJECTIVE, Adjectives.INESCAPABLE);
+        Thing<Adjectives> reality = new Thing<>("Reality", Adjectives.OBJECTIVE, Adjectives.INESCAPABLE);
         Printer.print(oldTimes, reality);
 
-        Thing justification = new Thing("Justification", Adjectives.OBJECTIVE);
+        Thing<Adjectives> justification = new Thing<>("Justification", Adjectives.OBJECTIVE);
         Thought obsession = new Thought("obsession", justification);
-        Thing dust = new Thing("dusty", Adjectives.COLD);
+        Thing<Adjectives> dust = new Thing<>("dusty", Adjectives.COLD);
         Cloud clouds = new Cloud("clouds", dust);
         Monster monster = new Monster("Monster", Adjectives.STONE, Adjectives.OLD);
         Printer.print(justification, monster.beNoticedInSpesificPlace(new MountainRange("Mountains")),
@@ -149,10 +145,10 @@ public class Main {
         we.setDizzy(true, new Thought(_sight));
 
         ArrayList<Thought> myths = new ArrayList<>();
-        myths.add(new Thought(new Location("Plateau of Leng", Adjectives.DEMONIC) {
+        myths.add(new Thought(new Location<>("Plateau of Leng", Adjectives.DEMONIC) {
         }));
         myths.add(new Thought(new MountainRange("Himalayas", new Human("Snowman"))));
-        Thing fragment = new Thing("Pnakotic Fragments");
+        Thing<?> fragment = new Thing<>("Pnakotic Fragments");
         fragment.setCreator(new Human("non-human"));
         myths.add(new Thought(fragment));
         Humanity сthulhuСult = new Humanity(100);

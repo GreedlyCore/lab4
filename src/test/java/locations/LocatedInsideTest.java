@@ -1,15 +1,17 @@
-package based;
+package locations;
 
+import based.Location;
 import enums.Adjectives;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LocationTest {
+class LocatedInsideTest {
 
     @Test
     void getInstanceOfNowhere() {
-        assertEquals(Location.getInstanceOfNowhere(),
+        Assertions.assertEquals(Location.getInstanceOfNowhere(),
                 Location.getInstanceOfNowhere());
     }
 

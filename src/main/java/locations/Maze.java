@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Maze<T> extends Location {
 
 
-    private Thing[] materials;
+    private Thing<?>[] materials;
     private Nature nature;
     private Rhythmicity rhythmicity;
     private Peak peak;
