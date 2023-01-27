@@ -1,8 +1,10 @@
 package di_framework;
 
 
+import di_framework.learning.AccessingAllClassesInPackage;
 import org.reflections.Reflections;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +24,30 @@ public class Injector {
         this.locations = createInstances();
     }
 
-    public Set<Class<?>> getClassesAnnotated() {
-        return new Reflections("di_framework").getTypesAnnotatedWith(LocatedInside.class);
+
+
+    public Set<Class> getClassesAnnotated() {
+        AccessingAllClassesInPackage instance = new AccessingAllClassesInPackage();
+
+        Set<Class> classes = instance.findAllClassesUsingClassLoader(
+                "di_framework");
+
+        for (Class<?> clazz : classes) {
+            if (!Injector.checkAnnotated(clazz)){
+                classes.remove(clazz);
+            }
+        }
+        return classes;
 
     }
+// to easy - want to without additional library
+//    public Set<Class<?>> getClassesAnnotated() {
+//        return new Reflections("di_framework").getTypesAnnotatedWith(LocatedInside.class);
+//
+//    }
 
     public ArrayList<Location> createInstances() {
-        Set<Class<?>> set = getClassesAnnotated();
+        Set<Class> set = getClassesAnnotated();
         ArrayList<Location> result = new ArrayList<>();
         for (Class<?> clazz : set) {
             try{
@@ -68,5 +87,14 @@ public class Injector {
             throw new RuntimeException("Нельзя сюда почему-то попадать...");
         }
 
+    }
+
+    public static  boolean checkAnnotated(Class<?> obj){
+        for(Annotation annotation: obj.getAnnotations()){
+            if (annotation instanceof LocatedInside){
+                return true;
+            }
+        }
+        return false;
     }
 }
