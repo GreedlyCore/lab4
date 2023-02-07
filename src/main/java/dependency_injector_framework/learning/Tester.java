@@ -1,4 +1,4 @@
-package di_framework.learning;
+package dependency_injector_framework.learning;
 
 public class Tester {
 

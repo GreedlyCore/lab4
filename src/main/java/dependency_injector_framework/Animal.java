@@ -1,4 +1,4 @@
-package di_framework;
+package dependency_injector_framework;
 
 import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
@@ -15,7 +15,6 @@ public class Animal {
             }
         }
     }
-
 
     class MyClass{
         int a;

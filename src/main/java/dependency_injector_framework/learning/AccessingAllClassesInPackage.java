@@ -1,6 +1,4 @@
-package di_framework.learning;
-
-import org.junit.jupiter.api.Assertions;
+package dependency_injector_framework.learning;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

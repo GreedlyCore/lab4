@@ -1,4 +1,4 @@
-package di_framework;
+package dependency_injector_framework;
 
 import java.lang.annotation.*;
 
@@ -6,5 +6,5 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Documented
 public @interface LocatedInside {
-    String parentName();
+    String clientName();
 }

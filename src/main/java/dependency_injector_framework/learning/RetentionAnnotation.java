@@ -1,4 +1,4 @@
-package di_framework.learning;
+package dependency_injector_framework.learning;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
